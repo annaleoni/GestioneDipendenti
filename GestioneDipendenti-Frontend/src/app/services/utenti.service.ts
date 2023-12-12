@@ -12,22 +12,22 @@ export class UtentiService {
   constructor(private http: HttpClient) { }
 
   getAllUtenti(): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}utenti`);
+    return this.http.get<any>(`${this.baseUrl}admin/`);
   }
 
   saveUser(formData: FormData){
-    return this.http.post<any>(`${this.baseUrl}utenti/user`, formData);
+    return this.http.post<any>(`${this.baseUrl}admin/inserimento/user`, formData);
   }
 
   saveAdmin(formData: FormData){
-    return this.http.post<any>(`${this.baseUrl}utenti/admin`, formData);
+    return this.http.post<any>(`${this.baseUrl}admin/inserimento/admin`, formData);
   }
 
   updateUser(userId: number, payload: any): Observable<any> {
-    return this.http.put<any>(`${this.baseUrl}utenti/${userId}`, payload);
+    return this.http.put<any>(`${this.baseUrl}admin/modifica/${userId}`, payload);
   }
 
   deleteUser(userId: number) {
-    return this.http.delete(`${this.baseUrl}utenti/${userId}`);
+    return this.http.delete(`${this.baseUrl}admin/delete/${userId}`);
   }
 }

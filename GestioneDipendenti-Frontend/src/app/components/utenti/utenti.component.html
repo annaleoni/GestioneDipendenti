@@ -1,12 +1,14 @@
 <div class="container mt-5">
 <h1 class="mb-5">Benvenuto {{username}}</h1>
-<table class="table">
+<table class="table mb-5">
   <thead>
     <tr>
       <th>#</th>
       <th>Nome</th>
       <th>Cognome</th>
       <th>Azioni</th>
+      <th>Modifica</th>
+      <th>Elimina</th>
     </tr>
   </thead>
   <tbody>
@@ -15,11 +17,38 @@
       <td>{{ utente.nome }}</td>
       <td>{{ utente.cognome }}</td>
       <td>
-        <button class="btn btn-primary">Modifica</button>
-        <button class="btn btn-danger">Elimina</button>
         <button class="btn btn-info">Visualizza Orari</button>
+      </td>
+      <td>
+        <button class="btn btn-primary">Modifica</button>
+      </td>
+      <td>
+        <button class="btn btn-danger" *ngIf="utente.id" (click)="deleteUtente(utente.id)">Elimina</button>
       </td>
     </tr>
   </tbody>
 </table>
+
+
+<form (submit)="confirmEdit()">
+  <label for="nome">Nome:</label>
+  <input type="text" id="nome" [(ngModel)]="editingNome" name="nome" required>
+
+  <label for="cognome">Cognome:</label>
+  <input type="text" id="cognome" [(ngModel)]="editingCognome" name="cognome" required>
+
+  <label for="username">Username:</label>
+  <input type="text" id="username" [(ngModel)]="editingUsername" name="username" required>
+
+  <label for="password">Password:</label>
+  <input type="text" id="password" [(ngModel)]="editingPassword" name="password" required>
+
+  <label for="ruolo">Ruolo:</label>
+  <input type="text" id="ruolo" [(ngModel)]="editingRuolo" name="ruolo" required>
+
+  <button type="submit" class="btn btn-success">Conferma Modifiche</button>
+  <button type="button" class="btn btn-secondary" (click)="cancelEdit()">Annulla</button>
+</form>
+
+
 </div>
