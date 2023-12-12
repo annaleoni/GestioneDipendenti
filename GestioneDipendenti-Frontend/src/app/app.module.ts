@@ -25,4 +25,5 @@ import { OrariutenteComponent } from './orariutente/orariutente.component';
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

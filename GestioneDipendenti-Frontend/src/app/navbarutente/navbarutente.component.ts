@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbarutente.component.css']
 })
 export class NavbarutenteComponent {
-
+  
 }

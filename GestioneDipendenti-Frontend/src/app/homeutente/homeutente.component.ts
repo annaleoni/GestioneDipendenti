@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./homeutente.component.css']
 })
 export class HomeutenteComponent {
+  isIngEnabled = true;
+  isExitEnabled = false;
 
+  toggleButtons() {
+    this.isIngEnabled = !this.isIngEnabled;
+    this.isExitEnabled = !this.isExitEnabled;
+  }
 }

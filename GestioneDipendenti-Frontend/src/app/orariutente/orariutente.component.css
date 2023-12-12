@@ -1,100 +1,35 @@
-html,
-body {
-  height: 100%;
-}
-
-body {
-  background: #1b1e23;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-family: sans-serif;
-  color: white;
-}
-
-p {
-  color: #f4eed7;
-  font-size: 0.8em;
-  opacity: 0.75;
-}
-
-.clock {
-  height: 200px;
-  width: 200px;
-  border-radius: 100px;
-  display: flex;
-  justify-content: center;
-  position: relative;
-}
-
-.clock__second,
-.clock__minute,
-.clock__hour,
-.clock__indicator {
-  position: absolute;
-  left: calc(50% - 1px);
-  width: 2px;
-  background: #f4eed7;
-  transform-origin: bottom center;
-  z-index: 2;
-  border-radius: 1px;
-}
-
-.clock__second {
-  height: 95px;
-  margin-top: 10px;
-  background: #4b9aaa;
-  animation: time 60s infinite steps(60);
-  z-index: 3;
-}
-
-.clock__minute {
-  height: 85px;
-  margin-top: 20px;
-  opacity: 0.75;
-  animation: time 3600s linear infinite;
-}
-
-.clock__hour {
-  height: 65px;
-  margin-top: 40px;
-  animation: time 43200s linear infinite;
-}
-
-.clock__indicator {
-  height: 98px;
-  border-top: 2px solid #4b9aaa;
-  background: none;
-}
-
-.clock__indicator:nth-of-type(5n) {
-  opacity: 1;
-  height: 93px;
-  border-top: 7px solid #f4eed7;
-}
-
-.clock__axis {
-  background: #4b9aaa;
-  width: 5px;
-  height: 5px;
-  border-radius: 3px;
-  position: absolute;
-  z-index: 4;
-  top: 97px;
-}
-
-@keyframes time {
-  to {
-    transform: rotateZ(360deg);
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 15px;
   }
-}
-
-/* Rotate sections */
-section:nth-of-type(1) {
-  transform: rotateZ(calc(6deg * 1));
-}
-section:nth-of-type(2) {
-  transform: rotateZ(calc(6deg * 2));
-}
-/* ... Repeat for sections 3 through 60 */
+  
+  .btn-circle.btn-lg {
+    width: 50px;
+    height: 50px;
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.33;
+    border-radius: 25px;
+  }
+  
+  .btn-circle.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    font-size: 24px;
+    line-height: 1.33;
+    border-radius: 35px;
+  }
+  
+  
+  /* use negative margins to accommodate wider button text */
+  
+  .btn-circle span {
+    margin: 0 -2rem;
+  }
+  
