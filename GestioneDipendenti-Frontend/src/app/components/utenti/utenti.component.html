@@ -1,1 +1,25 @@
-<p>utenti works!</p>
+<div class="container mt-5">
+<h1 class="mb-5">Benvenuto {{username}}</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Nome</th>
+      <th>Cognome</th>
+      <th>Azioni</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let utente of utenti; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ utente.nome }}</td>
+      <td>{{ utente.cognome }}</td>
+      <td>
+        <button class="btn btn-primary">Modifica</button>
+        <button class="btn btn-danger">Elimina</button>
+        <button class="btn btn-info">Visualizza Orari</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>

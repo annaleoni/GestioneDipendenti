@@ -14,19 +14,19 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminComponent, children: [
-      {path: '', redirectTo: '/utenti', pathMatch: 'full'},
+      {path: '', redirectTo: 'utenti', pathMatch: 'full'},
       {path: 'utenti', component: UtentiComponent},
       {path: 'aggiungi', component: AggiungiUtenteComponent},
       {path: 'lista', component: ListaOrariComponent}
     ],
     canActivate: [AuthGuard],
-    data: { roles: ['admin'] }
+    data: { roles: ['ADMIN'] }
   },
   {
     path: 'user',
     component: UserComponent,
     canActivate: [AuthGuard],
-    data: { roles: ['user'] }
+    data: { roles: ['USER'] }
   },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponentComponent }

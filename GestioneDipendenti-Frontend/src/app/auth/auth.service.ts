@@ -26,9 +26,11 @@ export class AuthService {
         if (response != null) {
           this.loggedIn = true;
           this.userRoles = response.ruolo || [];
+          const username = response.username;
+          localStorage.setItem('username', username);
 
           if (this.hasRoles(['ADMIN'])) {
-            this.router.navigate(['/admin']);
+            this.router.navigate(['/admin/utenti']);
           } else if (this.hasRoles(['USER'])) {
             this.router.navigate(['/user']);
           }
