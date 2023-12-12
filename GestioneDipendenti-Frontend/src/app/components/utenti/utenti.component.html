@@ -1,23 +1,25 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Admin</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" [routerLink]="'/admin/utenti'" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link"  [routerLink]="'/admin/aggiungi'" routerLinkActive="active">Aggiungi Utente</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link"  [routerLink]="'/admin/lista'" routerLinkActive="active">Lista Orari</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  
-  
+<div class="container mt-5">
+<h1 class="mb-5">Benvenuto {{username}}</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Nome</th>
+      <th>Cognome</th>
+      <th>Azioni</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let utente of utenti; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ utente.nome }}</td>
+      <td>{{ utente.cognome }}</td>
+      <td>
+        <button class="btn btn-primary">Modifica</button>
+        <button class="btn btn-danger">Elimina</button>
+        <button class="btn btn-info">Visualizza Orari</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
