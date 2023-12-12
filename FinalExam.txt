@@ -1,0 +1,24 @@
+Utente (Role=ADMIN/USER, nome, cognome, id, dataIngresso, dataUscita)
+Orari (id, idUtente, dataIngresso, dataUscita)
+
+API
+Login:
+- Login Post ("/auth") -> null || Utente
+
+Utente:
+- Put("/user/ingresso/{id}") [id, Body{dataIngresso}] -> Utente (con la dataIngresso impostata)
+- Put("/user/uscita/{id}") [id, Body{dataUscita}] -> Utente (con la dataUscita impostata)
+
+Admin:
+- Get("/admin/") -> List<Utente>
+- Get("/admin/utenteSelezionato/{id}") -> List<Orari>
+- Post("/admin/inserimento") [Body{Utente}] -> Utente
+- Put("/admin/modifica/{id}") [id, Body{Utente}] -> null || Utente
+- Delete("/admin/elimina/{id}") [id] -> null || Utente
+- Put("/admin/utenteSelezionato/{id}/modificaOra/{idOra}") [id, idOra, Body{Orari}] -> Orari
+- Delete("/admin/utenteSelezionato/{id}/eliminaTuttiOrari") [id] -> List<Orari>
+
+Controller:
+- Auth
+- Dipendente
+- Admin
