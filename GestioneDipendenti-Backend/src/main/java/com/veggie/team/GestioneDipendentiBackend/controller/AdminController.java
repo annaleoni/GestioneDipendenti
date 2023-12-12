@@ -21,6 +21,11 @@ public class AdminController {
         return us.trovaTuttiUtenti();
     }
 
+    @GetMapping("/utenteSelezionato/{id}")
+    public Utente leggiUtente() {
+        return null;
+    }
+
     @PostMapping("/inserimento/admin")
     public Utente inserisciAdmin(@RequestBody Utente utente) {
         return us.inserisciUtenteAdmin(utente);
@@ -32,7 +37,14 @@ public class AdminController {
     }
 
     @PutMapping("/modifica/{id}")
-    public Utente modificaUser(@PathVariable int id, @RequestBody Utente utente) {
-        return null;
+    public Utente modificaUtente(@PathVariable int id, @RequestBody Utente utente) {
+        return us.modificaUtente(id, utente);
+    }
+
+    @DeleteMapping("/elimina/{id}")
+    public Utente eliminaUtente(@PathVariable int id) {
+        Utente utente = us.trovaSingoloUtente(id);
+        us.eliminaUtente(id);
+        return utente;
     }
 }

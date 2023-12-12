@@ -12,4 +12,5 @@ import java.util.Optional;
 public interface UtenteRepo extends JpaRepository<Utente, Integer> {
     public Optional<Utente> findByUsernameAndPassword(String username, String password);
     public List<Utente> findByRuolo(Role ruolo);
+    public List<Utente> findById(int id);
 }

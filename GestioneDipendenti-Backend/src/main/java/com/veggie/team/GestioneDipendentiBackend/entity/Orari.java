@@ -23,7 +23,7 @@ public class Orari {
     private LocalDate dataUscita;
 
     // Many To One
-    @ManyToOne(cascade=CascadeType.ALL)
+    @ManyToOne()
     @JoinColumn(name="idUtente")
     private Utente utente;
 }

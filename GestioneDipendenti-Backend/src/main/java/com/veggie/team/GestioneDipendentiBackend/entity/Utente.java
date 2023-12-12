@@ -34,6 +34,6 @@ public class Utente {
     @Column(nullable = false)
     private String cognome;
 
-    @OneToMany(mappedBy="utente")
+    @OneToMany(mappedBy="utente", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<Orari> orari;
 }
