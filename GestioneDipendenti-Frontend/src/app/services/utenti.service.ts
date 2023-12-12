@@ -12,7 +12,7 @@ export class UtentiService {
   constructor(private http: HttpClient) { }
 
   getAllUtenti(): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}utenti`);
+    return this.http.get<any>(`${this.baseUrl}admin/`);
   }
 
   saveUser(formData: FormData){

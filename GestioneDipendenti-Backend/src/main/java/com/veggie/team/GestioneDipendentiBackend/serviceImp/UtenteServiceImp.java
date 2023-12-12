@@ -28,6 +28,12 @@ public class UtenteServiceImp implements UtenteService {
     }
 
     @Override
+    public Utente trovaSingoloUtente(int id) {
+        List<Utente> list = ur.findById(id);
+        return list.get(0);
+    }
+
+    @Override
     public Utente inserisciUtenteAdmin(Utente utente) {
         Utente admin = utente;
         admin.setRuolo(Role.valueOf("ADMIN"));
@@ -37,7 +43,22 @@ public class UtenteServiceImp implements UtenteService {
     @Override
     public Utente inserisciUtenteUser(Utente utente) {
         Utente ut = utente;
-        ut.setRuolo(Role.valueOf("ADMIN"));
+        ut.setRuolo(Role.valueOf("USER"));
         return ur.save(ut);
+    }
+
+    @Override
+    public Utente modificaUtente(int id, Utente utente) {
+        Utente utenteInDb = trovaSingoloUtente(id);
+        Utente ut = utente;
+        ut.setIdUtente(utenteInDb.getIdUtente());
+        if (ut.getRuolo() == null)
+            ut.setRuolo(utenteInDb.getRuolo());
+        return ur.save(ut);
+    }
+
+    @Override
+    public void eliminaUtente(int id) {
+        ur.deleteById(id);
     }
 }
